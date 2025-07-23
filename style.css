@@ -1,0 +1,80 @@
+html{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family: sans-serif;/*Importar fonte pedida na especificação*/
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #F5F9FF;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 100%;
+    height: 40rem;
+    max-width: 40rem;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 16px;
+    padding: 1.6rem 2.4rem;
+}
+h1{
+    font-size: 3.2rem;
+    color: #11175E;
+    justify-content: start;
+    margin-top: 0px;
+}
+#create-tasks-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > input{
+        height: 4rem;
+        border: solid .1rem #b4b5b7;
+        border-radius: .8rem;
+        padding-left: 1rem;
+    }
+}
+
+.add-task-btn{
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    border-radius: .8rem;
+    background-color: #2D70FD;
+    color: #fff;
+    cursor: pointer;
+    &:hover{
+        transition: .5s;
+        opacity: .8;
+    }
+}
+.tasks-list-section{
+    margin: .8rem 0 1.6rem;
+    min-height: 5rem;
+    & > ul{
+        padding-inline-start: 0rem;
+        height: 23rem;
+        overflow: auto;
+    }
+    &> ul> li{
+        list-style-type: none;
+        padding: .8rem 1.6rem;
+        font-size: 1.6rem;
+        background-color: #efe;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: .8rem;
+    }
+    &>li:last-child{
+        margin-bottom: 0px;
+    }
+    
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Board de tarefas</h1>
+        <section id="create-tasks-section">
+            <!--Formulario para inserir novas tarefas-->
+            <form id="create-tasks-form">
+                <!--Input nome das tarefas-->
+                <input 
+                type="text"
+                id="name-tasks"
+                name="name-tasks"
+                class="input-name-tasks"
+                aria-label="Insira o nome da sua tarefas"
+                placeholder="Nome da tarefa"
+                >
+                <!--Input etiquetas das tarefas-->
+                <input 
+                type="text"
+                id="tag-tasks"
+                name="tag-tasks"
+                class="input-tag-tasks"
+                aria-label="Insita o identificador da sua tarefa"
+                placeholder="Etiqueta"
+                >
+                <button type="submit" id="save-task" aria-label="Cadastrar nova tarefa" class="add-task-btn">+</button>
+            </form>
+        </section>
+        <section class="tasks-list-section">
+            <ul id="tasks-list">
+            </ul>
+        </section> 
+        <hr class="hr-footer">
+        <footer></footer>
+    </main>
+</body>
+</html>

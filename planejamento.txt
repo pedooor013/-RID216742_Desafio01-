@@ -1,1 +1,4 @@
-arquivo para planejar o projeto
+fazer o desenvolvimento do front-end, implementar todos os codigos que serão importador pelo JS para que possa ser estilizado de maneira mais dinamica e simples.
+precisamos criar o campo das tasks, e como irão se comportar após o click.
+
+após estilização irei especificar como vai ser o Back-End

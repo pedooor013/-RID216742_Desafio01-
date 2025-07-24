@@ -2,3 +2,8 @@ fazer o desenvolvimento do front-end, implementar todos os codigos que serão im
 precisamos criar o campo das tasks, e como irão se comportar após o click.
 
 após estilização irei especificar como vai ser o Back-End
+
+planejamento back-end:
+
+criar uma função carregada automaticamente quando a tela é carregada
+

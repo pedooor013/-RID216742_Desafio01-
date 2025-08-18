@@ -1,40 +1,39 @@
-const clickButtonAddTasks = (event) =>{
-    
+//Variaveis
+
+const taskList = document.getElementById("tasks-list");
+const nameTask = document.getElementById("name-tasks");
+const tagTask = document.getElementById("tag-tasks");
+
+//Function que recolhe a data atual
+const getDate = () =>{
+    const currentDate = new Date();
+
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentYear = currentDate.getFullYear();
+
+    return `${currentDay}/${currentMonth}/${currentYear}`;
 }
 
-//Coleta as informações do input
-const getInput = ({idTask, nameTask, tagTask, dateCreatedTaks}) =>{
-    //Definindo as variaveis 
-    const li = document.createElement('div');
-    const tasksContent = document.createElement('div');
-    const tasksTitle = document.createElement('h3');
-    const spanWrapper = document.createElement('div');
-    const spanTag = document.createElement('span');
-    const spanDataTag = document.createElement('span');
-    const button = document.createElement('button');
-
-    //Implementando o nome das class 
-    li.className('li-tasks');
-    tasksContent.className('tasks-content');
-    spanWrapper.className('tasks-span');
-    spanTag.className('tasks-tag');
-    spanDataTag.className('tasks-data-tag');
-    button.className('btn-finish-tasks');
-
-    //Definindo o conteudo das variaveis
-    tasksTitle.textContent = nameTask;
-    spanTag.textContent = tagTask;
-    spanDataTag.tasksContent = `Criado em: ${dateCreatedTaks}`;
-    button.textContent = 'Concluir';
-
-    //Evento click botao
-    button.addEventListener('click', () =>{
-        li.classList.toggle("done");
-    })
+//Function  de adicionar tarefa 
+const addTask = (event) =>{
+    const taskName = nameTask.value.trim();
+    const taskTag = tagTask.value.trim();
+    const taskDateCreate = getDate();
+    if(taskName !== "" && taskTag !== ""){
+        const li = document.createElement('li');
+        li.innerHTML = `
+                <div class="tasks-content">
+                <h3>${taskName}</h3>
+                <div class="tasks-span">
+                    <span class="tasks-tag">${taskTag}</span>
+                    <span class="tasks-data-tag">Criado em: ${taskDateCreate}</span>
+                </div>
+                </div>
+                <button class="btn-finish-tasks">Concluir</button>
+        `;
+        taskList.appendChild(li);
+        taskName.value = "";
+        taskTag.value = "";
+    }
 }
-
-const addTasks = (event) => {
-        event.preventDefault(); 
-        document.getElementById("save-task");
-
-} 

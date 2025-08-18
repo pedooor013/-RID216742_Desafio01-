@@ -101,7 +101,7 @@
         }
     }
     }
-    .li-tasks > #tasks-content {
+    .li-tasks > .tasks-content {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -113,13 +113,13 @@
         margin: 0 0 0.8rem 0;
     }
     }
-    #tasks-span {
+    .tasks-span {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     color: #b1bacb;
 
-    & > #tasks-tag {
+    & > .tasks-tag {
         margin: 0 1rem 0 0;
         border: solid 0.1rem #b1bacb;
         border-radius: 99.9rem;
@@ -171,7 +171,7 @@
                 align-items: center;
                 margin-bottom: 1.5rem;
                 font-size: 2.2rem;
-                color: #b1bacb;
+                color: #000;
             }
             & > button {
                 width: 105%;
@@ -208,10 +208,10 @@
                     display: flex;
                     flex-direction: column;
                 }
-                & > div > #tasks-data-tag {
+                & > div > .tasks-data-tag {
                 margin-top: .5rem;
                 }
-                & > div > #tasks-tag {
+                & > div > .tasks-tag {
                     display: inline-block;
                     width: fit-content;
                 }

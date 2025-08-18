@@ -1,63 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <main>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="./index.js "></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <main>
         <header>
             <h1>Board de tarefas</h1>
         </header>
         <section id="create-tasks-section">
             <!--Formulario para inserir novas tarefas-->
             <form id="create-tasks-form">
-                <!--Input nome das tarefas-->
-                <input 
+            <!--Input nome das tarefas-->
+            <input
                 type="text"
                 id="name-tasks"
                 name="name-tasks"
                 class="input-name-tasks"
                 aria-label="Insira o nome da sua tarefas"
                 placeholder="Nome da tarefa"
-                >
-                <!--Input etiquetas das tarefas-->
-                <input 
+            />
+            <!--Input etiquetas das tarefas-->
+            <input
                 type="text"
                 id="tag-tasks"
                 name="tag-tasks"
                 class="input-tag-tasks"
                 aria-label="Insita o identificador da sua tarefa"
                 placeholder="Etiqueta"
-                >
-                <button type="submit" id="save-task" aria-label="Cadastrar nova tarefa" class="add-task-btn">+</button>
+            />
+            <button
+                type="submit"
+                id="save-task"
+                aria-label="Cadastrar nova tarefa"
+                class="add-task-btn"
+            >
+                +
+            </button>
             </form>
         </section>
         <section class="tasks-list-section">
-            
             <ul id="tasks-list">
-                <li class="li-tasks" id="tasks">
-                    <div id="tasks-content">
-                        <h3>Implementar tela de listagem de tarefas</h3>
-                        <div id="tasks-span">
-                            <span id="tasks-tag">frontend</span>
-                                <span id="tasks-data-tag">Criado em: 15/07/2025</span>
-                        </div>  
-                    </div>
-                        <button class="btn-finish-tasks">Concluir</button>
-                </li>
-            </ul>
 
-        </section> 
+            <li class="li-tasks">
+                <div class="tasks-content">
+                <h3>Implementar tela de listagem de tarefas</h3>
+                <div class="tasks-span">
+                    <span class="tasks-tag">frontend</span>
+                    <span class="tasks-data-tag">Criado em: 15/07/2025</span>
+                </div>
+                </div>
+                <button class="btn-finish-tasks">Concluir</button>
+            </li>
+            
+            </ul>
+        </section>
         <footer>
-            <hr class="hr-footer">
+            <hr class="hr-footer" />
         </footer>
-    </main>
-</body>
-</html>
+        </main>
+    </body>
+    </html>

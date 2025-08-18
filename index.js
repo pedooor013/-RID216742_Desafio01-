@@ -1,8 +1,8 @@
 //Variaveis
-
 const taskList = document.getElementById("tasks-list");
 const nameTask = document.getElementById("name-tasks");
 const tagTask = document.getElementById("tag-tasks");
+const footer = document.getElementById('page-footer')
 
 //Function que recolhe a data atual
 const getDate = () =>{
@@ -24,16 +24,36 @@ const addTask = (event) =>{
         const li = document.createElement('li');
         li.innerHTML = `
                 <div class="tasks-content">
-                <h3>${taskName}</h3>
+                <h3 id="h3-name-tasks">${taskName}</h3>
                 <div class="tasks-span">
                     <span class="tasks-tag">${taskTag}</span>
                     <span class="tasks-data-tag">Criado em: ${taskDateCreate}</span>
                 </div>
                 </div>
-                <button class="btn-finish-tasks">Concluir</button>
+                <button class="btn-finish-tasks" onclick="finishTasks()">Concluir</button>
         `;
         taskList.appendChild(li);
         taskName.value = "";
         taskTag.value = "";
     }
+}
+
+const changeStyleButton = (button) =>{
+}
+
+
+const finishTasks = (button) =>{
+    button.classList.toggle("btn-checked-tasks");
+} 
+
+const countFinishTasks = () =>{
+    /* const numFinishedTasks = ; */
+    const span = document.createElement('span')
+    /* span.innerHTML = `${numFinishedTasks} tarefas concluídas`; */
+    span.innerHTML = ` tarefas concluídas`;
+    footer.appendChild(span);
+}
+
+window.onload = () =>{
+    countFinishTasks();
 }

@@ -1,77 +1,85 @@
-//Variaveis
-const taskList = document.getElementById("tasks-list");
-const nameTask = document.getElementById("name-tasks");
-const tagTask = document.getElementById("tag-tasks");
-const footer = document.getElementById('page-footer');
-const btnTasks = document.getElementById('btn-tasks'); 
+    //Variaveis
+    const taskList = document.getElementById("tasks-list");
+    const nameTask = document.getElementById("name-tasks");
+    const tagTask = document.getElementById("tag-tasks");
+    const footer = document.getElementById('page-footer');
+    const btnTasks = document.getElementById('btn-tasks'); 
 
 
-//Array tasks
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    //Array tasks
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-//Function que salva no localStorage o array Tasks
-const saveTasks = () => {
-    localStorage.setItem("tasks", JSON.stringify(tasks))
-}
+    //Function que salva no localStorage o array Tasks
+    const saveTasks = () => {
+        localStorage.setItem("tasks", JSON.stringify(tasks))
+    }
 
-
-
-
-
-//Function que recolhe a data atual
-const getDate = () =>{
-    const currentDate = new Date();
-
-    const currentDay = currentDate.getDate();
-    const currentMonth = currentDate.getMonth() + 1;
-    const currentYear = currentDate.getFullYear();
-
-    return `${currentDay}/${currentMonth}/${currentYear}`;
-}
-
-
-//Function  de adicionar tarefa 
-const addTask = (event) =>{
-    const taskName = nameTask.value.trim();
-    const taskTag = tagTask.value.trim();
-    const taskDateCreate = getDate();
-    if(taskName !== "" && taskTag !== ""){
-        const li = document.createElement('li');
-        li.innerHTML = `
+    //Function para renderizar o array tasks
+    const renderTasks = () => {
+        taskList.innerHTML = "";
+        tasks.forEach((task, index) =>{
+            const li = document.createElement('li');
+            li.innerHTML = `
                 <div class="tasks-content">
-                <h3 id="h3-name-tasks">${taskName}</h3>
+                <h3 class="${task.checked ? "h3-tasks-checked" : "h3-tasks"}">${task.name}</h3>     
                 <div class="tasks-span">
-                    <span class="tasks-tag">${taskTag}</span>
-                    <span class="tasks-data-tag">Criado em: ${taskDateCreate}</span>
+                        <span class="tasks-tag">${task.tag}</span>
+                        <span class="tasks-data-tag">Criado em: ${task.date}</span>
+                    </div>
                 </div>
-                </div>
-                <button class="btn-finish-tasks" id="btn-tasks" onclick="finishTasks()">Concluir</button>
-        `;
-        taskList.appendChild(li);
-        taskName.value = "";
-        taskTag.value = "";
+                <button class= "${task.checked ? "btn-checked-tasks" :"btn-finish-tasks" }" onclick="finishTasks(${index})">
+                    ${task.checked ? "✓" : "Concluir"}
+                </button>
+            `;
+            taskList.appendChild(li);
+        });
+        countFinishTasks();
     }
-}
 
-const changeStyleButton = () =>{
-    if(){
-        btnTasks.className = 'btn-checked-tasks';
+    //Function que recolhe a data atual
+    const getDate = () =>{
+        const currentDate = new Date();
+
+        const currentDay = currentDate.getDate();
+        const currentMonth = currentDate.getMonth() + 1;
+        const currentYear = currentDate.getFullYear();
+
+        return `${currentDay}/${currentMonth}/${currentYear}`;
     }
-}
 
 
-const finishTasks = (button) =>{
+    //Function  de adicionar tarefa 
+    const addTask = (event) =>{
+        const taskName = nameTask.value.trim();
+        const taskTag = tagTask.value.trim();
+        const taskDateCreate = getDate();
 
-} 
+        if(taskName !== "" && taskTag !== ""){
+            tasks.push({
+                name: taskName,
+                tag: taskTag,
+                date: taskDateCreate,
+                checked: false
+            });
+            saveTasks();
+            renderTasks();
+            nameTask.value = "";
+            tagTask.value = "";
+        }
+    }
 
-const countFinishTasks = () =>{
-    /* const numFinishedTasks = ; */
-    const span = document.createElement('span')
-    /* span.innerHTML = `${numFinishedTasks} tarefas concluídas`; */
-    span.innerHTML = ` tarefas concluídas`;
-    footer.appendChild(span);
-}
+    const finishTasks = (index) =>{
+        tasks[index].checked = !tasks[index].checked;
+        saveTasks();
+        renderTasks();
+        console.log(tasks[index].checked);
+    } 
 
-window.onload = () =>{
-    countFinishTasks();
-}
+    const countFinishTasks = () =>{
+        const numFinishedTasks = tasks.filter(t => t.checked).length;
+        footer.innerHTML = `<span>${numFinishedTasks} tarefas concluídas</span>`;
+    }
+
+    window.onload = () =>{
+        renderTasks();
+    }

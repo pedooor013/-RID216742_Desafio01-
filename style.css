@@ -108,7 +108,7 @@
     height: 100%;
     justify-content: space-between;
 
-    & > h3 {
+    & > .h3-tasks{
         width: 100%;
         margin: 0 0 0.8rem 0;
     }
@@ -148,8 +148,13 @@
         transition: .5s;
         opacity: .8;
     }
-    }
+    
 
+    }
+.h3-tasks-checked{
+        text-decoration: line-through;
+        color: #8f98a8;
+    }
     @media screen and (max-width: 800px) {
     html {
         width: 100%;
@@ -212,6 +217,7 @@
             align-items: center;
             justify-content: center;
             & > li {
+                width: 80%;
                 display: flex;
                 flex-direction: column;
                 padding: 1.5rem;

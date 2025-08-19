@@ -30,7 +30,7 @@ const addTask = (event) =>{
                     <span class="tasks-data-tag">Criado em: ${taskDateCreate}</span>
                 </div>
                 </div>
-                <button class="btn-finish-tasks" onclick="finishTasks()">Concluir</button>
+                <button class="btn-finish-tasks" id="btn-tasks" onclick="finishTasks()">Concluir</button>
         `;
         taskList.appendChild(li);
         taskName.value = "";
@@ -39,11 +39,15 @@ const addTask = (event) =>{
 }
 
 const changeStyleButton = (button) =>{
+    
+
 }
 
 
 const finishTasks = (button) =>{
-    button.classList.toggle("btn-checked-tasks");
+    document.getElementById('btn-tasks').classList.remove = 'btn-finish-tasks';
+    document.getElementById('btn-tasks').classList.add = 'btn-checked-tasks';
+    console.log('Estou sendo ativado');
 } 
 
 const countFinishTasks = () =>{

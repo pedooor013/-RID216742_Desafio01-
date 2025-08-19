@@ -2,7 +2,21 @@
 const taskList = document.getElementById("tasks-list");
 const nameTask = document.getElementById("name-tasks");
 const tagTask = document.getElementById("tag-tasks");
-const footer = document.getElementById('page-footer')
+const footer = document.getElementById('page-footer');
+const btnTasks = document.getElementById('btn-tasks'); 
+
+
+//Array tasks
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+//Function que salva no localStorage o array Tasks
+const saveTasks = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+}
+
+
+
+
 
 //Function que recolhe a data atual
 const getDate = () =>{
@@ -14,6 +28,7 @@ const getDate = () =>{
 
     return `${currentDay}/${currentMonth}/${currentYear}`;
 }
+
 
 //Function  de adicionar tarefa 
 const addTask = (event) =>{
@@ -38,16 +53,15 @@ const addTask = (event) =>{
     }
 }
 
-const changeStyleButton = (button) =>{
-    
-
+const changeStyleButton = () =>{
+    if(){
+        btnTasks.className = 'btn-checked-tasks';
+    }
 }
 
 
 const finishTasks = (button) =>{
-    document.getElementById('btn-tasks').classList.remove = 'btn-finish-tasks';
-    document.getElementById('btn-tasks').classList.add = 'btn-checked-tasks';
-    console.log('Estou sendo ativado');
+
 } 
 
 const countFinishTasks = () =>{

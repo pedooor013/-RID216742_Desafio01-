@@ -86,7 +86,7 @@
     & > ul > li:last-child {
         margin-bottom: 0px;
     }   
-        & > ul > li > button {
+        & > ul > li > .btn-finish-tasks {
             border: none;
             border-radius: 0.4rem;
             width: 30%;
